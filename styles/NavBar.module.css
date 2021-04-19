@@ -1,0 +1,7 @@
+.logoFill{
+  filter:invert(1);
+}
+
+.logoFill_below{
+  filter:invert(0);
+}

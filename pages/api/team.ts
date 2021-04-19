@@ -1,20 +1,32 @@
-import fetch from 'node-fetch';
-import type { NextApiRequest, NextApiResponse } from 'next'
+import fetch from "node-fetch";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-const teamURL = "https://tretton37.com/meet"
+const teamURL = "https://api.1337co.de/v3/employees";
 
 type Data = {
-  name: string
-}
+  name: string;
+};
 
-export default async(req: NextApiRequest, res: NextApiResponse<Data | any>) => {
+export default async (
+  _req: NextApiRequest,
+  res: NextApiResponse<Data | any>
+) => {
   try {
-  const resp =  await fetch(teamURL).then(r=>r.json())
-  console.log({resp})
-  } catch(error){
+    const data = await fetch(teamURL,  {
+              method: "get",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `api-key ${process.env.API_KEY}`
+              }
+            }).then((t: any) => t.json());
+    console.log({data})
+    let ninjas = [];
+
+    res.status(200).json({ ninjas });
+  } catch (error) {
+    console.warn({ error });
     res.status(500).json({
-      error
-    })
+      error,
+    });
   }
-  res.status(200).json({ name: 'John Doe' })
-}
+};
