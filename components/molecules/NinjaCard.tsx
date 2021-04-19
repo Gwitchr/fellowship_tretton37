@@ -1,17 +1,17 @@
 import { CSSProperties } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
   faStackOverflow,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { SocialIcon } from "../atoms";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { iNinja } from "../../types";
 import { shorten } from "../../utils";
 
-import styles from '../../styles/NinjaCard.module.css'
+import styles from "../../styles/NinjaCard.module.css";
 
 function NinjaCard(props: {
   info: iNinja;
@@ -26,7 +26,9 @@ function NinjaCard(props: {
     >
       <Image
         className={`${styles.ninja_card} w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  `}
-        src={info.imagePortraitUrl||"https://source.unsplash.com/300x300/?user"}
+        src={
+          info.imagePortraitUrl || "https://source.unsplash.com/300x300/?user"
+        }
         alt={`${info?.name} profile`}
         width="300"
         height="300"
@@ -48,76 +50,31 @@ function NinjaCard(props: {
           <div>
             <ul className="flex justify-center md:justify-start items-center">
               {info?.email ? (
-                <li className="block w-5 h-5 mx-1">
-                  <a
-                    href={`mailto:${info.email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ maxWidth: "20px" }}
-                  >
-                    <FontAwesomeIcon icon={faEnvelope} />
-                  </a>
-                </li>
+                <SocialIcon link={`mailto:${info.email}`} icon={faEnvelope} />
               ) : null}
               {info?.linkedIn ? (
-                <li className="block w-5 h-5 mx-1">
-                  <a
-                    href={`https://linkedin.com${info.linkedIn}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                      style={{ maxWidth: "20px" }}
-                  >
-                    <FontAwesomeIcon
-
-                      icon={faLinkedin}
-                    />
-                  </a>
-                </li>
+                <SocialIcon
+                  link={`https://linkedin.com${info.linkedIn}`}
+                  icon={faGithub}
+                />
               ) : null}
               {info?.gitHub ? (
-                <li className="block w-5 h-5 mx-1">
-                  <a
-                    href={`https://github.com/${info.gitHub}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                      style={{ maxWidth: "20px" }}
-                  >
-                    <FontAwesomeIcon
-
-                      icon={faGithub}
-                    />
-                  </a>
-                </li>
+                <SocialIcon
+                  link={`https://github.com/${info.gitHub}`}
+                  icon={faGithub}
+                />
               ) : null}
               {info?.twitter ? (
-                <li className="block w-5 h-5 mx-1">
-                  <a
-                    href={`https://twitter.com/${info.twitter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ maxWidth: "20px" }}
-                  >
-                    <FontAwesomeIcon
-
-                      icon={faTwitter}
-                    />
-                  </a>
-                </li>
+                <SocialIcon
+                  link={`https://twitter.com/${info.twitter}`}
+                  icon={faTwitter}
+                />
               ) : null}
               {info?.stackOverflow ? (
-                <li className="block w-5 h-5 mx-1">
-                  <a
-                    href={info.stackOverflow}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                      style={{ maxWidth: "20px" }}
-                  >
-                    <FontAwesomeIcon
-
-                      icon={faStackOverflow}
-                    />
-                  </a>
-                </li>
+                <SocialIcon
+                  link={`https://stackoverflow.com/${info.stackOverflow}`}
+                  icon={faStackOverflow}
+                />
               ) : null}
             </ul>
           </div>
