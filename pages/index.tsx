@@ -27,7 +27,6 @@ export default function Home(): JSX.Element {
     }
   }, []);
 
-  console.log({ninjas})
 
   return (
     <div className="">
