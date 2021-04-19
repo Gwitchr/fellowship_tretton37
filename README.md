@@ -9,7 +9,8 @@ But it actually brings a lot less info than the working api
 
 It's built with `tailwindcss` and is written in `TypeScript`, although some places could use better types
 
-some characteristics:
+some characteristics and thoughts:
+
 - As a failover an images is get from unsplash to fill any missing picture
 - SearchBar has a function that searches in all available fields of the object
 - Descriptions are truncated at around 80 characters to try and respect full words, implementation of a drawer with the full text should be easy
