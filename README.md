@@ -19,6 +19,8 @@ some characteristics:
 - Filtering is probably not as optimised as it should be
 - The Nextjs Image component is a wild beast that I am yet to master
 - The filter function has a small debuonce to allow the user to stop typing before search begins
+- The tailwind config also not very familiar with it, the bundle could be smaller by configuring the purge property
+
 
 #### Published at
 [heroku](https://tretton-users.herokuapp.com)
