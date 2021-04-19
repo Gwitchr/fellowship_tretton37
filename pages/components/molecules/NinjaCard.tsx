@@ -19,16 +19,16 @@ function NinjaCard(props: {
   const { info, className, ...rest } = props;
   return (
     <figure
-      className={`${className} md:flex bg-gray-100 rounded-xl p-8 md:p-0  shadow`}
+      className={`${className} md:flex bg-gray-100 rounded-xl p-8 md:p-0  shadow text-center`}
       {...rest}
     >
       {info?.imagePortraitUrl ? (
         <Image
-          className="w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  "
+          className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  "
           src={info.imagePortraitUrl}
           alt={`${info?.name} profile`}
-          width="384"
-          height="512"
+          width="300"
+          height="300"
         />
       ) : null}
 
@@ -46,7 +46,7 @@ function NinjaCard(props: {
           <div className="text-cyan-600">{info?.name || "Name"}</div>
           <div className="text-gray-500">{info?.office || "Name"}</div>
           <div>
-            <ul className="flex justify-start items-center">
+            <ul className="flex justify-center md:justify-start items-center">
               {info?.email ? (
                 <li className="block w-5 h-5 mx-1">
                   <a
