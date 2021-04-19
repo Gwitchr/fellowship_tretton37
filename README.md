@@ -17,6 +17,8 @@ some characteristics:
 - No other libraries were used for state management (this of course do to time constraints)
 - I believe it to be quite responsive, although I didn't check very large screen sizes 🙈
 - Filtering is probably not as optimised as it should be
+- The Nextjs Image component is a wild beast that I am yet to master
+- The filter function has a small debuonce to allow the user to stop typing before search begins
 
 #### Published at
 [heroku](https://tretton-users.herokuapp.com)

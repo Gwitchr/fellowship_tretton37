@@ -9,13 +9,15 @@ import {
 import { iNinja } from "../types";
 import { useDebounce } from "../hooks";
 
+const DEBOUNCE_TIME = 300 as const
+
 export default function Home(): JSX.Element {
   const [ninjas, setNinjas] = useState<iNinja[] | null>(null);
   const [networkErr, setNetworkErr] = useState<null>(null);
   const [sortByName, setSortByName] = useState(false);
   const [sortByOffice, setSortByOffice] = useState(false);
   const [search, setSearch] = useState("");
-  const searchDebounce: string = useDebounce(search, 500);
+  const searchDebounce: string = useDebounce(search, DEBOUNCE_TIME);
   useEffect(() => {
     const getData = async () => {
       try {

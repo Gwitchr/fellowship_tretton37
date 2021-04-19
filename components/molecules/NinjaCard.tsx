@@ -24,15 +24,16 @@ function NinjaCard(props: {
       className={`${className} md:flex bg-gray-100 rounded-xl p-8 md:p-0  shadow text-center`}
       {...rest}
     >
-      <Image
-        className={`${styles.ninja_card} w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  `}
-        src={
-          info.imagePortraitUrl || "https://source.unsplash.com/300x300/?user"
-        }
-        alt={`${info?.name} profile`}
-        width="300"
-        height="300"
-      />
+
+        <Image
+          className={`${styles.ninja_card_img} w-24 h-24 md:w-36 md:h-auto md:rounded-none rounded-full mx-auto object-cover  `}
+          src={
+            info.imagePortraitUrl || "https://source.unsplash.com/300x300/?user"
+          }
+          alt={`${info?.name} profile`}
+          width="300"
+          height="300"
+        />
 
       <div className="pt-6 md:p-8 text-center md:text-left space-y-4 border-l-4 border-green-400">
         <blockquote>
