@@ -120,7 +120,7 @@ export default function Home(): JSX.Element {
               search={search}
             />
             <UsersRoster
-              {/* This is probably not the best to sort data, it should be done by the API */}
+              //This is probably not the best to sort data, it should be done by the API
               ninjas={ninjas.filter(filteredNinjas).sort(sortFunction).sort(sortByOfficeFunction)}
             />
           </>
