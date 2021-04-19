@@ -8,8 +8,8 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { iNinja } from "../../../types";
-import { shorten } from "../../../utils";
+import { iNinja } from "../../types";
+import { shorten } from "../../utils";
 
 function NinjaCard(props: {
   info: iNinja;

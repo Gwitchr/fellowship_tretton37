@@ -1,5 +1,5 @@
 import {NinjaCard} from '../molecules'
-import {iNinja} from '../../../types'
+import {iNinja} from '../../types'
 
 function UsersRoster({ ninjas }) {
   return (

@@ -5,7 +5,7 @@ import {
   NavBar,
   UsersRoster,
   SearchBar,
-} from "./components/organisms";
+} from "../components/organisms";
 import { iNinja } from "../types";
 
 export default function Home(): JSX.Element {
