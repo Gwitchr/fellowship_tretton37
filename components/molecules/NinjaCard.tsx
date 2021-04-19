@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from "react";
+import { CSSProperties } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,8 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { iNinja } from "../../types";
 import { shorten } from "../../utils";
 
+import styles from '../../styles/NinjaCard.module.css'
+
 function NinjaCard(props: {
   info: iNinja;
   className: string;
@@ -22,15 +24,13 @@ function NinjaCard(props: {
       className={`${className} md:flex bg-gray-100 rounded-xl p-8 md:p-0  shadow text-center`}
       {...rest}
     >
-      {info?.imagePortraitUrl ? (
-        <Image
-          className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  "
-          src={info.imagePortraitUrl}
-          alt={`${info?.name} profile`}
-          width="300"
-          height="300"
-        />
-      ) : null}
+      <Image
+        className={`${styles.ninja_card} w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover  `}
+        src={info.imagePortraitUrl||"https://source.unsplash.com/300x300/?user"}
+        alt={`${info?.name} profile`}
+        width="300"
+        height="300"
+      />
 
       <div className="pt-6 md:p-8 text-center md:text-left space-y-4 border-l-4 border-green-400">
         <blockquote>
@@ -50,7 +50,7 @@ function NinjaCard(props: {
               {info?.email ? (
                 <li className="block w-5 h-5 mx-1">
                   <a
-                    href={info.email}
+                    href={`mailto:${info.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ maxWidth: "20px" }}
@@ -62,7 +62,7 @@ function NinjaCard(props: {
               {info?.linkedIn ? (
                 <li className="block w-5 h-5 mx-1">
                   <a
-                    href={info.linkedIn}
+                    href={`https://linkedin.com${info.linkedIn}`}
                     target="_blank"
                     rel="noopener noreferrer"
                       style={{ maxWidth: "20px" }}
@@ -77,7 +77,7 @@ function NinjaCard(props: {
               {info?.gitHub ? (
                 <li className="block w-5 h-5 mx-1">
                   <a
-                    href={info.gitHub}
+                    href={`https://github.com/${info.gitHub}`}
                     target="_blank"
                     rel="noopener noreferrer"
                       style={{ maxWidth: "20px" }}
@@ -92,7 +92,7 @@ function NinjaCard(props: {
               {info?.twitter ? (
                 <li className="block w-5 h-5 mx-1">
                   <a
-                    href={info.twitter}
+                    href={`https://twitter.com/${info.twitter}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ maxWidth: "20px" }}
