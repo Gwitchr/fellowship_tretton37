@@ -12,17 +12,23 @@ export default async (
   res: NextApiResponse<Data | any>
 ) => {
   try {
-    const data = await fetch(teamURL,  {
-              method: "get",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `api-key ${process.env.API_KEY}`
-              }
-            }).then((t: any) => t.json());
-    console.log({data})
-    let ninjas = [];
+    const data = await fetch(teamURL, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `api-key ${process.env.API_KEY}`,
+      },
+    }).then((t: any) => t.json());
 
-    res.status(200).json({ ninjas });
+    const cleanData = data.map((el) => {
+      const text = el?.mainText
+        ?.replace("<p>", " ")
+        .replace("</p> ", " ")
+        .split("</p><p>");
+      return { ...el, mainText: text };
+    });
+
+    res.status(200).json({ ninjas: cleanData });
   } catch (error) {
     console.warn({ error });
     res.status(500).json({
