@@ -8,15 +8,13 @@ type iNinja = {
   name?: string;
   location?: string;
   picture?: {
-    class: string;
-    src: string;
-    alt: string;
+    [name:string]:string
   };
 };
 
 export default async (
   _req: NextApiRequest,
-  res: NextApiResponse<iNinja[] | Error>
+  res: NextApiResponse<any>
 ) => {
   try {
     const data: Cheerio = await fetch(teamURL).then((t: any) => t.text());
