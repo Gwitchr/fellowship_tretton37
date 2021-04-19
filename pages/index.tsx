@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, SubmitEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import Head from "next/head";
 import {
   JumboTitle,
@@ -39,7 +39,7 @@ export default function Home(): JSX.Element {
     setSearch(e.target.value);
   };
 
-  const handleSubmit = (e: SubmitEvent) => {
+  const handleSubmit = (e: ChangeEvent) => {
     e.preventDefault();
   };
   const handleSortByName = (e:ChangeEvent<HTMLInputElement>) => {
