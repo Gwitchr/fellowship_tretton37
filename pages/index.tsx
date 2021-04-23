@@ -22,17 +22,17 @@ export default function Home(): JSX.Element {
     const getData = async () => {
       try {
         const data = await fetch(`/api/team`).then((r) => r.json());
-        // const data = await fetch(`/api/team_scrap`).then((r) => r.json());
+        // const data = await fetch(`/api/team_scrape`).then((r) => r.json());
         // Changed to team instead of team_scrap, cause the API has more info, like gh site
         setNinjas(data.ninjas);
       } catch (err) {
         setNetworkErr(err.toString());
       }
     };
-    if (ninjas === null) {
+    if (!networkErr && ninjas === null) {
       getData();
     }
-  }, []);
+  }, [ninjas,networkErr]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
@@ -84,7 +84,8 @@ export default function Home(): JSX.Element {
 
   const filteredNinjas = (el: iNinja) => {
     if (searchDebounce !== "") {
-      return Object.entries(el).some(([_key, val]) =>
+      // return Object.entries(el).some(([_key, val]) =>
+      return Object.values(el).some((val) =>
         val
           ? val
               .toString()
